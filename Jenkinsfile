@@ -1,11 +1,15 @@
-@Library('lib') _
-pipeline{
-    agent any
-}
-    tools{
-        jdk  'jdk11'
-        maven  'maven3'
-    }
 
+pipeline{
     
-        
+    agent any
+
+    stages{
+        stage('gitcheckout'){
+            steps{
+                script{
+                    it branch: 'main', url: 'https://github.com/jaiswaladi246/Shopping-Cart.git'
+                }
+            }
+        }
+    }
+}
